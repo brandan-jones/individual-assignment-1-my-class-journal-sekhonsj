@@ -9,18 +9,18 @@ import java.util.List;
 @Component
 public class IJournalServiceStub implements IJournalService{
 
+    List journalEntries = new ArrayList<JournalEntry>();
+
     @Override
     public void save(JournalEntry journalEntry) {
-
+        JournalEntry entry = new JournalEntry();
+        entry.setNotes("My first entry!");
+        entry.setDate("October 2021");
+        journalEntries.add(entry);
     }
 
     @Override
     public List<JournalEntry> fetchAll() {
-        JournalEntry entry = new JournalEntry();
-        entry.setNotes("My first entry!");
-        entry.setDate("October 2021");
-        List journalEntries = new ArrayList<JournalEntry>();
-        journalEntries.add(entry);
         return journalEntries;
     }
 }
